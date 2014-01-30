@@ -1,0 +1,10 @@
+Like java, C++ uses the class to support object-based programming 
+	- However there is significant additional syntax because of C++'s attempt to make class types look exactly like primitive types
+
+	-In C++, top level classes, cannot be declared with any visibility specifier 
+	- Also notice that the class declaration in C++ ends with a semicolon. 
+	- Instead of supplying a visibility modifier for each member, we simply provide
+	  visibility modifiers for sections of the class
+	- In Java constructors can invoke each other using a call to this. In C++, this is not allowed
+	- The First alternative is to use default parameters in the constructor 
+	----> Similarities, Modulo Syntax check out mini program in this directory called IntCell 

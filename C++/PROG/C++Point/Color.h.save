@@ -1,0 +1,33 @@
+#pragma once 
+
+#include <string>
+
+namespace oop { 
+
+	class Color { 
+		unsigned char r, g, b; 
+	
+	public: 
+		static const Color WHITE; 
+		static const Color BLACK;
+		static const Color RED;
+		static const Color GREEN;
+		static const Color BLUE; 
+		
+		Color(unsigned char _r, unsigned char _g, unsigned char _b)
+		   : r(_r), g(_g), b(_b) { 
+		}
+
+		inline unsigned char red() const { 
+		   return r; 
+		}
+
+		unsigned char green() const { 
+		  return g; 
+		}
+
+		unsigned char blue() const { 
+		  return b; 
+		}
+
+		string toString() const; 

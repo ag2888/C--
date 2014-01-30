@@ -1,0 +1,39 @@
+OO Design 
+
+What are the functional requirements of the project 
+
+How do compilers work ? Take a textual representation and parse into a tree 
+representation of the program 
+	- Small Example 
+
+	while( x < 2 * y )  {  
+
+		x++; 
+	} 
+
+	Abstract Syntax Tree for the above 
+
+while statement node which has child less than node which has the child 
+	x the identifier  
+	
+	Less than has also the child mult 
+
+	mult has the child const and identifier y 
+while statement node also has child increment statement 
+		- incrementStatement has child identifier x 
+	
+				
+	
+
+	Two different Types of Tree 
+		- Abstract Syntax Tree: essential synthatic constructs of the 
+					program 
+		
+	 Nodes that represent individual constructs 
+
+		- concrete 
+
+	OO Design 
+		 - CRC cards - Specific responibilities of the class and the 
+			       Collolobators 
+		- UML Language 

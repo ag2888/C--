@@ -1,0 +1,87 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf510
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww16420\viewh13360\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \
+Ankit Goel \
+Hw 3 \
+Thomas wies oop\
+\
+\
+1.) 
+\b Program Execution of Hw3.1.cc and Descriptions at each stage \
+
+\b0 \
+	1- The First Method that is called when the program is run 
+\b \ul is the constructor of A
+\b0 \ulnone . 	   This happens as you assign the Ptr<int, object_policy> p to point to  the allocated A object.\
+	\
+	2- The second Method call is the 
+\b \ul regular constructor of the Ptr class 
+\b0 \ulnone when the int* x is passed into 	the argument of the constructor of A. Here the local parameter Ptr<int, object_policy> _x is initialized with the value x. 	\
+	3- The third method call is 
+\b \ul the copy constructor of the Ptr class
+\b0 \ulnone   when the struct A's member x is set to 	equal the the parameter Ptr<int, object_policy>  _x. Currently the counter for Ptr<int,object_policy> p's member  	Ptr<int,object_policy> x is 2 as the local variable _x is still on the stack & still points to the same address as  the member x . \
+\
+	4- The fourth method call is the
+\b \ul  regular constructor of Ptr<int, object_policy> p
+\b0 \ulnone  as A returns. \
+\
+	5- After A's constructor returns the local parameter _x is taken off the stack and 
+\b \ul therefore the 	destructor
+\b0 \ulnone  for Ptr<int,object_policy>  _x is called and the counter is decreased by one making the count 1 	now. \
+	\
+	6- 
+\b \ul The copy constructor of the Ptr class
+\b0 \ulnone   is invoked when Ptr <int,object_policy>q is set to equal Ptr <int,object_policy>p. 	This increases the  count to 2 of this address \
+\
+	\
+\
+	7.) Next
+\b \ul  the operator->
+\b0 \ulnone  is called to get the Ptr<int,object_policy> q's variable which also is a pointer. \
+	\
+	8.) Therefore the 
+\b \ul dereference pointer
+\b0 \ulnone  is called after to get the value that pointer x is pointing to which is 5 in this case. The value is then printed.\
+\
+	9.) After the stack clears for main we have the 
+\b \ul Ptr object q's destructor being called
+\b0 \ulnone  followed by an object_policy destroy  \
+	       which then deletes the addresses. 
+\b Similar logic for Ptr object p
+\b0 . \
+\
+	11.) After that 
+\b \ul Ptr q's member Ptr x's destructor is called 
+\b0 \ulnone which then calls an object_policy destroy.
+\b  \
+\
+	Basically All Pointers are gone. \
+\
+	------------------------------------------------------ x------------------------------------------------------------------------------------------------------------------------------------------\
+\
+\
+	2.) Undefined Behavior in Hw3.2.cc \
+\
+	The problem here is not  in the library code, it's in main. The error occurs on the line where you call \
+		\
+		std::cout << *(a->x) << std::endl; \
+\
+	When you pass new A(&x) to the pointer and when constructing the A you pass it a memory reference to something that's on the   	stack( the &x argument) which Ptr will consider as heap memory. To fix this simply say  \
+	\
+			Ptr<A, object_policy> a = new A(new int(x)); \
+\
+	-------------------------------------------------------------x-------------------------------------------------------------------------------------------------------------------------------------\
+	\
+	3.) Undefined Behavior in Hw3.3.cc \
+\
+	     First let me say what Is happening with the call f(&*a). In this case what the &* is doing is saying first dereference the pointer ( as 	     described in ptr.h with operator *) then you can pass the memory address of whatever 	     that object is, in this case its our allocated A object. The reason this code breaks with a segmentation fault  is that you're calling the 	     address's constructor of Ptr(the Ptr(T* addr = 0) constructor). When you pass it to 	     the function f() it constructs a new Ptr with that same reference but this time the counters to each other are decoupled and when f() 	     returns the reference to A that our original Ptr object had is deleted because the 	     counter had gone to zero.  A possible fix is the mark the regular constructor of the Ptr class to be explicit. /*Null pointer is zero**/\
+\
+\
+\
+\
+\
+}

@@ -1,0 +1,3 @@
+Color.o: Color.cc Color.h
+Point.o: Point.cc Point.h Color.h
+Main.o: Main.cc Point.h Color.h

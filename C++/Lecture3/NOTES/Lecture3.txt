@@ -1,0 +1,19 @@
+	C++ gives you much more flexibility wit data structures. Full Control of Memory. If you write C++ code you get more 
+	efficient code. 
+		- C++ programs whenever you have to access hardware 
+
+		- Basic differences between JAVA Compiler and C++ File 
+			- In C++ there is typically two files associated with code you write
+			- A file that gives you the actual implementation and another file that specifies the 
+			  basic interface. This interface is stored in a specific file called the header file
+			
+		- In Java packages are used to have clean namespaces to avoid ambiguioty. Also used for visibility 
+		  Control 
+	
+		- in C++ we have a similar mechanism called namespaces
+	
+		- in g++ Most C++ compilers provide additional warnings 
+		- -Wall for additional Warning 
+		- C++ provides two types of arrays. One is a C array which is a sequence of objects in memory 
+		- There is no bound checks for C style arrays 
+		- 

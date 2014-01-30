@@ -1,0 +1,43 @@
+- Everything in Java is an object except for instances of primitive types. 
+
+- The Java Programmer cannot force the Virtual Machine to reclaim an unused 
+  object. Instead, if an object no longer has any references to it, either 
+  directly or indirectly, the virtual machine at its discretion, declare the  
+  object inactive and reclaim the object. This process is known as GARBAGE/Users/ankitgoel/Library/Containers/com.apple.TextEdit/Data/Desktop/OOP/C++/NOTES/JavaVSCplusplusMemoryModel.txt
+  Collection. 
+
+- Objects in Java can only be created on the memory heap. 
+
+- The C++ memory Model is significantly more complicated. Local variables 
+  including objects in C++ ( such as vectors and strings) can be created without calling new. When = is applied to objects, the state of one object 
+  is copied. This contrasts with java where objects are accessed indirectly by reference variables and an = copies the value of the reference variable
+
+	C++ allows the programmer to obtain a variable that stores the memory address where the object is being kept. Such a variable is called a pointer
+	variable in C++. Pointer variables in C++ have many of the semantics of reference variables in Java, with extra Flexibility. 
+
+	We can declare that an object ptr points at an int object by saying.
+	int *ptr; 
+
+
+	A pointer variable in C++ is a variable that stores the memory address of any other entity. The entity can be a primitive type or a class type. 
+		---> Now to have a pointer point at an object, we need to know the memory address of the target objects. For object obj, its memory address
+		    is given by applying the unary address of operator &. Thus &obj is the memory location that stores obj
+		---> The data being pointed at are obtained by the unary dereferencing operator *. 
+				--> Dereferencing works not only for reading values from an object,  but also for writing new values to the object. 
+
+		We could also have initialized ptr at delcaration time by having it point to x: 
+			int x = 5; 
+			int y = 7; 
+			int *ptr = &x; 
+
+		However the following would be illegal 
+			int *ptr = x; 
+			ptr = x; // Illegal: x is not an address 
+		
+		A dereferenced pointer behaves just like the object at which it is pointing at. 
+		- The * at declaration time is not a dereferencing *, but rather just an indication that the object is a pointer type 
+
+		
+		The memory of your computer can be imagined as a succession of memory cells
+
+		As soon as we declare a variable, the amount of memory needed is assigned
